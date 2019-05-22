@@ -12,6 +12,10 @@ setup:
 	pip install neuromation
 	neuro login
 
+.PHONY: purge
+purge:
+	neuro rm $(NOTEBOOK_FOLDER)/$(LESSON)/notebook.ipynb
+
 .PHONY: run
 run:
 	neuro job submit $(IMAGE_NAME) --volume $(COURSE_FOLDER)/$(LESSON):/notebooks:ro \
